@@ -53,51 +53,57 @@ function DbUsers() {
 
                 {/* ROW 1 */}
 
-                {users.map((user)=> {
-                    return(
-                        <tr key={user._id}>
+                {users && users.map((user)=> {
+                    
+                    {if (!user.hgEmployee){
+                        return(
+                            <tr key={user._id}>
+    
+                    <th>
+    
+                    <label>
+                    <input type="checkbox" className="checkbox" />
+                    </label>
+                    </th>
+    
+                    <td>
+    
+                    <div className="flex items-center space-x-3">
+    
+                    {/* profile pic */}
+                    <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                        <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                    </div>
+                    </div>
+    
+                    
+                    <div>
+                    <div className="font-bold">{user.name}</div>
+                    <div className="text-sm opacity-50">United States</div>
+                    </div>
+    
+                    </div>
+                    </td>
+    
+                    <td>
+                   {/*  {`${user.owner.name}
+                    ${user.owner.lastName}`} */}
+                    <br/>
+                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                    </td>
+    
+                    <td></td>
+                    <th>
+                    <button className="btn btn-ghost btn-xs">{user.createdAt}</button>
+                    </th>
+    
+                    </tr>
+                    
+                        )
 
-                <th>
-
-                <label>
-                <input type="checkbox" className="checkbox" />
-                </label>
-                </th>
-
-                <td>
-
-                <div className="flex items-center space-x-3">
-
-                {/* profile pic */}
-                <div className="avatar">
-                <div className="mask mask-squircle w-12 h-12">
-                    <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                </div>
-                </div>
-
-                
-                <div>
-                <div className="font-bold">{company.name}</div>
-                <div className="text-sm opacity-50">United States</div>
-                </div>
-
-                </div>
-                </td>
-
-                <td>
-                {`${company.owner.name}
-                ${company.owner.lastName}`}
-                <br/>
-                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                </td>
-
-                <td>{company.category}</td>
-                <th>
-                <button className="btn btn-ghost btn-xs">{company.createdAt}</button>
-                </th>
-
-                </tr>
-                    )
+                    }}
+                    
                 })}
 
                 

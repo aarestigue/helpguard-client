@@ -7,8 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 
 
-function EditDelete() {
-
+function EditDelete({company}) {
    const [name, setName] = useState('');
    const [lastName, setLastName] = useState('');
    const [email, setEmail] = useState('');
@@ -17,25 +16,58 @@ function EditDelete() {
     const { id } = useParams();
     const navigate = useNavigate();
 
+    /* const getCompany = async () => {
+        try {
+          let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/companies/${props.company._id}`);
+    
+          setName(response.data.name);
+          setLastName(response.data.lastName);
+          setEmail(response.data.email);
+          setOwner(response.data.owner);
+
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      useEffect(() => {
+        getCompany();
+      }, []); */
+    
+      const handleName= (e) => setName(e.target.value);
+      const handleLastName = (e) => setLastName(e.target.value);
+      const handleEmail = (e) => setEmail(e.target.value);
+      const handleOwner = (e) => setOwner(e.target.value);
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        const body = { name, lastName, email, owner };
+    
+        axios
+          .put(`${process.env.REACT_APP_API_URL}/api/companies/${id}`, body)
+          .then(() => {
+            setName('');
+            setLastName('');
+            setEmail('');
+            setOwner('');
+            navigate(`/database`);
+          })
+          .catch((err) => console.log(err));
+      };
+    
+      const deleteCompany = () => {
+        axios
+          .delete(`${process.env.REACT_APP_API_URL}/api/companies/${id}`)
+          .then(() => {
+            navigate('/database');
+          })
+          .catch((err) => console.log(err));
+      };
   
   return (
 <>
-    <ul class="menu menu-horizontal bg-base-100 rounded-box">
-  <li>
 
-    <a>
-      <img src={editIcon} className="h-5 w-5" fill="none" alt=""  viewBox="0 0 24 24" stroke="currentColor"></img>
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      <label for="my-modal-6" className='modal-btn'>Edit</label>    
-    </a>
-  </li>
-  <li>
-    <a>
-      <img src={deleteIcon} class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </a>
-  </li>
-  
-</ul>
 <input type="checkbox" id="my-modal-6" class="modal-toggle" />
     <div class="modal modal-bottom sm:modal-middle">
       <div class="modal-box">
@@ -46,7 +78,7 @@ function EditDelete() {
             </label>
             <label className="input-group">
                 
-                <input type="text" name="email" value={email} onChange={handleEmail} placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name="email" value={company.email} onChange={handleEmail}  placeholder="Enter your email" className="input input-bordered w-full max-w-xs" />
             </label>
      </div>
 
@@ -58,7 +90,7 @@ function EditDelete() {
             </label>
             <label className="input-group">
                 
-                <input type="text" name="name" value={name} onChange={handleName} placeholder="Enter your name" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name="name" value={company.name} onChange={handleName}  placeholder="Enter your name" className="input input-bordered w-full max-w-xs" />
             </label>
      </div>
 
@@ -67,7 +99,7 @@ function EditDelete() {
                 <span className="label-text">Last name</span>
             </label>
             <label className="input-group">
-                <input type="text" name="lastName" value={lastName} onChange={handleLastName} placeholder="Enter your last name" className="input input-bordered w-full max-w-xs" />
+                <input type="text" name="lastName" value={company.lastName} onChange={handleLastName}  placeholder="Enter your last name" className="input input-bordered w-full max-w-xs" />
             </label>
      </div>
         <div class="modal-action">

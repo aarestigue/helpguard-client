@@ -1,13 +1,23 @@
 import React from 'react'
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../../context/auth.context';
+import { useContext } from 'react';
 
 function Header() {
+
+    const { loggedIn, user, logout } = useContext(AuthContext);
+
   return (
     <div>
         <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <Link to="/" className="btn btn-ghost normal-case text-xl"><img src="" alt="" />logo</Link>
   </div>
+
+ 
   <div class="flex-none">
+  {loggedIn && (
+    <>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle">
         <div class="indicator">
@@ -25,12 +35,16 @@ function Header() {
         </div>
       </div>
     </div>
+
+    
+    
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
           <img src="https://placeimg.com/80/80/people" />
         </div>
       </label>
+      
       <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li>
           <a class="justify-between">
@@ -39,9 +53,24 @@ function Header() {
           </a>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        <li><a onClick={logout}>Logout</a></li>
       </ul>
+
     </div>
+    </>
+     )}
+
+     {logout && !loggedIn && (
+        <>
+        <Link to="/login">Login</Link>
+        <div className="navbar-end">
+        <Link to="/false/signup" className="btn">Start now</Link>
+      </div>
+      
+      </>
+     )}
+
+
   </div>
 </div>
     </div>

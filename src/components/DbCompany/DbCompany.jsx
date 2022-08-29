@@ -8,14 +8,15 @@ function DbCompany() {
 
   const getCompanies = async () => {
     try {
-      /* const storedToken = localStorage.getItem('authToken'); */
+      const storedToken = localStorage.getItem('authToken');
 
       let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/companies`, {
-        /* headers: {
+        headers: {
           Authorization: `Bearer ${storedToken}`,
-        }, */
+        },
       });
       setCompanies(response.data.reverse());
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     }
@@ -53,14 +54,14 @@ function DbCompany() {
 
                 {/* ROW 1 */}
 
-                {companies.map((company)=> {
+                {companies && companies.map((company)=> {
                     return(
                         <tr key={company._id}>
 
                 <th>
 
                 <label>
-                <input type="checkbox" className="checkbox" />
+                <input type="radio" className="radio" />
                 </label>
                 </th>
 
@@ -109,9 +110,9 @@ function DbCompany() {
     <tfoot>
       <tr>
         <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th></th>
+        <th></th>
+        <th></th>
         <th></th>
       </tr>
     </tfoot>

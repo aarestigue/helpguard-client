@@ -1,0 +1,23 @@
+.ticket-pipeline {
+    width: 80%;
+    background-color: grey;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ticket-status {
+    width: 25%;
+    background-color: aliceblue;
+    margin: 3vw;
+}
+
+@media screen and (max-width: 690px) {
+    
+    .ticket-pipeline {
+        width: 80%;
+        background-color: grey;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}

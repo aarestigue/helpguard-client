@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
+import './components/EditDelete/EditCompany.css'
+import './components/Modal/modal.css'
+import './components/pages/Tickets/Tickets.css'
 import './css/index.css'
 
 import App from './App';

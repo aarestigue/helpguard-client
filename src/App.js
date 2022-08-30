@@ -8,6 +8,7 @@ import Signup from './components/pages/Signup/Signup';
 import HomePage from './components/pages/HomePage/HomePage';
 import DbCompany from './components/DbCompany/DbCompany';
 import DbUsers from './components/DbUsers/DbUsers';
+import Tickets from './components/pages/Tickets/Tickets';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
         <Route path="/companies" element={<DbCompany/>}/>
         <Route path="/clients" element={<DbUsers/>}/>
+        <Route path="/tickets" element={<Tickets/>}/>
 
       </Routes>
      

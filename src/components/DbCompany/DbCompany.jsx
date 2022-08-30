@@ -1,14 +1,33 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 import editIcon from '../../images/edit.svg'
 import deleteIcon from '../../images/trash.svg'
+import addIcon from '../../images/add.png'
+
 import EditDelete from '../EditDelete/EditDelete';
+import Modal from '../Modal/Modal';
+import AddCompanyModal from '../AddCompanyModa/AddCompanyModal';
+
 
 function DbCompany() {
 
   const [companies, setCompanies] = useState([]);
   const [modalInfo, setModalInfo] = useState(null);
+
+  const [openModal, setOpenModal] = useState(false)
+
+  // To close Edit Modal
+
+  const [closeModal, setCloseModal] = useState(true)
+
+  //to toggle Create Company Modal
+
+  const [openCreateModal, setOpenCreateModal] = useState(false)
+
+  const navigate = useNavigate();
 
   const getCompanies = async () => {
     try {
@@ -19,8 +38,8 @@ function DbCompany() {
           Authorization: `Bearer ${storedToken}`,
         },
       });
-      setCompanies(response.data.reverse());
-      console.log(response.data)
+      setCompanies(response.data);
+      
     } catch (error) {
       console.log(error);
     }
@@ -38,30 +57,36 @@ function DbCompany() {
 
   return (
     <div>
-         <ul class="menu menu-horizontal bg-base-100 rounded-box">
+         <ul class="menu menu-horizontal bg-base-100 rounded-box" >
   
   
-  <li>
+  <li onClick={()=> setCloseModal(false)}>
 <a >
-<img src={editIcon} className="h-5 w-5" fill="none" alt=""  viewBox="0 0 24 24" stroke="currentColor"></img>
+<img src={editIcon} className="h-5 w-5" fill="none" alt=""  viewBox="0 0 24 24" stroke="currentColor">
+</img>
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-<label for="my-modal-6" className='modal-btn'>
-
-  Edit
-
-  </label>   
-
-</a>
-
-</li>
-
-<li>
-<a>
-<img src={deleteIcon} class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+<label for="my-modal-6" >Edit
+</label>   
 </a>
 </li>
+
+<li onClick={()=> setOpenCreateModal(true)}>
+<a >
+<img src={editIcon} className="h-5 w-5" fill="none" alt=""  viewBox="0 0 24 24" stroke="currentColor">
+</img>
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+<label for="my-modal-6" >Create
+</label>   
+</a>
+</li>
+
+
 
 </ul>
+
+
+
+
         {/* TABLE GOES HERE */}
 
         <div className="overflow-x-auto w-full">
@@ -116,7 +141,13 @@ function DbCompany() {
                 <div>
                 <div className="font-bold">{company.name}</div>
                 <div className="text-sm opacity-50">
-                
+                {/* DELETE ICON */}
+
+   {/*  <li>
+    <a onClick={()=> {setModalInfo(company)}}>
+    <img src={deleteIcon} class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </a>
+</li> */}
                 </div>
                 </div>
 
@@ -158,10 +189,20 @@ function DbCompany() {
   </table>
 </div>
 <>
-{modalInfo && 
-<EditDelete company={modalInfo} />
+{modalInfo && !closeModal &&
+<EditDelete update={getCompanies} company={modalInfo} onClose={()=> setCloseModal(true)} />
 }
 </>
+
+<>
+  {openCreateModal &&
+  <AddCompanyModal open={openCreateModal} update={getCompanies} onClose={()=> setOpenCreateModal(false)}/>
+}
+</>
+
+
+{/* <Modal open={openModal} onClose={()=> setOpenModal(false)}/> */}
+
     </div>
   )
 }

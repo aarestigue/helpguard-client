@@ -21,3 +21,9 @@
         justify-content: space-evenly;
     }
 }
+
+.column-group {
+    width: 100vw;
+    background-color: rgba(241, 239, 234, 0.521);
+    
+}

@@ -8,33 +8,48 @@ import { UserMenu } from 'react-admin';
 import styled from 'styled-components'
 import TicketCard from './TicketCard';
 
-function TicketColumn() {
+function TicketColumn(props) {
 
     const Container = styled.div`
+
+    @media screen and (max-width: 690px){
+    width: 90%;
     margin: 2vw;
     border: 0.3vw solid orange;
-    border-radius: 0.8vw;
+    border-radius: 0.8vw;   
+    }
+
+    @media screen and (min-width: 691px){
+    width: 30%;
+    margin: 2vw;
+    border: 0.3vw solid orange;
+    border-radius: 0.8vw;   
+    }
+    
     `;
     const Title = styled.h3`
     padding: 2vw;
+    background-color: grey;
     `;
     const StateList = styled.div`
     padding: 2vw;
     `;
 
-    const [ticketStates, setTicketStates] = useState([])
+    const [ticketsStates, setTicketsStates] = useState(props.ticketsStates);
+    const [ticketOwner, setTicketOwner] = useState("");
 
-    const getStates = async () => {
+      const getTicketInfo = async (ticketId) => {
         try {
           const storedToken = localStorage.getItem('authToken');
       
-          let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tickets-states`, {
+          let response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tickets/${ticketId}`, {
             headers: {
               Authorization: `Bearer ${storedToken}`,
             },
           });
           
-          setTicketStates(response.data.reverse());
+          setTicketOwner(response.data);
+          
           
         } catch (error) {
           console.log(error);
@@ -42,13 +57,20 @@ function TicketColumn() {
       };
       
       useEffect(() => {
-        getStates();
+        getTicketInfo();
       }, []);
 
+      useEffect(() => {
+        setTicketsStates(props.ticketsStates)
+      }, [props]);
+
+      
+
+      
   return (
-    <div>
+    <div className='column-group overflow-x-auto overflow-y-auto'> 
        
-        <div>{ticketStates && ticketStates.map((state)=> {
+        <div>{ticketsStates && ticketsStates.map((state)=> {
             return (
             <Container>
             <Title>{state.statusName}</Title>
@@ -58,10 +80,17 @@ function TicketColumn() {
                      <StateList
                      ref={provided.innerRef}
                      {...provided.droppableProps}>
+
                      {state.tickets.map((ticket, index)=> {
                          return (
                              <TicketCard 
+                     key={ticket._id}
                      subject={ticket.subject}
+                     description={ticket.description}
+                     priority={ticket.priority}
+                     getInfo={() => getTicketInfo(ticket._id)}
+                     owner={ticket.owner}
+                     company={ticket.company}
                      id={ticket._id}
                      index={index}
                      />

@@ -68,4 +68,38 @@
     margin-right: calc(1rem - 8px);
   }
 
+  @media screen and (max-width: 768px) {
+    .sidebar{
+      position: fixed;
+      z-index: 9;
+      background: #ffe0e0;
+      width: 55%;
+      padding-right: 1rem;
+      height: 100%;
+    }
+    .menu-items>span{
+      display: block;
+    }
+    .logo{
+      display: flex;
+    }
+    .menu .menu-items:last-child {
+      position: relative;
+      margin-top: 6rem;
+    }
+    .bars{
+      display: flex;
+      position: fixed;
+      top: 2rem;
+      left:60%;
+      background:#ffe0e0;
+      padding:10px;
+      border-radius: 10px;
+      z-index: 9;
+    }
+    .close{
+      left: -60%;
+    }
+  }
+
   

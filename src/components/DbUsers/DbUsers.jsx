@@ -6,6 +6,7 @@ import editIcon from '../../images/edit.svg'
 import deleteIcon from '../../images/trash.svg'
 import addIcon from '../../images/add.png'
 import CreateUser from '../CreateUser/CreateUser';
+import EditUser from '../EditUser/EditUser';
 
 function DbUsers() {
 
@@ -91,9 +92,9 @@ function DbUsers() {
 
                 <tr>
                     <th>
-                    <label>
+                    {/* <label>
                     <input type="checkbox" class="checkbox" />
-                    </label>
+                    </label> */}
                     </th>
                     <th>Name</th>
                     <th>Owner</th>
@@ -116,7 +117,7 @@ function DbUsers() {
                     <th>
     
                     <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input value={user._id} type="radio" className="radio" onClick={() => setEditModalInfo(user)}/>
                     </label>
                     </th>
     
@@ -125,26 +126,27 @@ function DbUsers() {
                     <div className="flex items-center space-x-3">
     
                     {/* profile pic */}
-                    <div className="avatar">
+                    {/* <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                         <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
                     </div>
-                    </div>
+                    </div> */}
     
                     
                     <div>
                     <div className="font-bold">{user.name}</div>
-                    <div className="text-sm opacity-50">United States</div>
+                    <div className="text-sm opacity-50">Client</div>
                     </div>
     
                     </div>
                     </td>
     
                     <td>
-                   {/*  {`${user.owner.name}
+                    {/* {`${user.owner.name}
                     ${user.owner.lastName}`} */}
+                    {user.owner}
                     <br/>
-                    <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                    <span className="badge badge-ghost badge-sm">Agent</span>
                     </td>
     
                     <td></td>
@@ -178,6 +180,13 @@ function DbUsers() {
     
   </table>
 </div>
+
+<>
+
+{ editModalInfo && !closeEditModal &&
+<EditUser user={editModalInfo} update={getUsers} onClose={()=> setCloseEditModal(true)}/>
+}
+</>
 
 <>
 { openCreateUser &&

@@ -11,6 +11,8 @@ import DbUsers from './components/DbUsers/DbUsers';
 import Tickets from './components/pages/Tickets/Tickets';
 import AdminPanel from './components/pages/AdminPanel/AdminPanel';
 import Sidebar from './components/Sidebar/Sidebar';
+import Profile from './components/pages/Pofile/Profile';
+import Help from './components/pages/Help/Help';
 
 
 function App() {
@@ -26,10 +28,10 @@ function App() {
         <Route path="/:employee/signup" element={<Signup/>}/>
         <Route path="/database" element={<Database/>}/>
 
-        <Route path="/companies" element={<DbCompany/>}/>
-        <Route path="/clients" element={<DbUsers/>}/>
+        <Route path="/profile" element={<Profile/>}/>
         <Route path="/tickets" element={<Tickets/>}/>
         <Route path="/admin" element={<AdminPanel/>}/>
+        <Route path="/help" element={<Help/>}/>
 
 
       </Routes>

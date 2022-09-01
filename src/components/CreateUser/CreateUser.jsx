@@ -100,7 +100,7 @@ function CreateUser({update, onClose}) {
 
         try{
         
-        let newClient = await axios
+        await axios
         .post(`${process.env.REACT_APP_API_URL}/api/users`, body, {
         headers: {
           Authorization: `Bearer ${storedToken}`,

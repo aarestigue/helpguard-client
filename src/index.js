@@ -6,7 +6,10 @@ import './index.css';
 import './components/EditDelete/EditCompany.css'
 import './components/Modal/modal.css'
 import './components/pages/Tickets/Tickets.css'
+import './components/pages/AdminPanel/AdminPanel.css'
 import './css/index.css'
+/* import './assets/css/fonts.css'; */
+
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';

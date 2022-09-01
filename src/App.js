@@ -9,11 +9,13 @@ import HomePage from './components/pages/HomePage/HomePage';
 import DbCompany from './components/DbCompany/DbCompany';
 import DbUsers from './components/DbUsers/DbUsers';
 import Tickets from './components/pages/Tickets/Tickets';
+import AdminPanel from './components/pages/AdminPanel/AdminPanel';
 
 
 function App() {
   return (
     <div className="App">
+
       <Layout/>
       <HomePage/>
       
@@ -25,6 +27,8 @@ function App() {
         <Route path="/companies" element={<DbCompany/>}/>
         <Route path="/clients" element={<DbUsers/>}/>
         <Route path="/tickets" element={<Tickets/>}/>
+        <Route path="/admin" element={<AdminPanel/>}/>
+
 
       </Routes>
      

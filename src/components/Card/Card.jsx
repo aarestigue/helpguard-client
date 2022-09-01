@@ -11,7 +11,7 @@ function Card(props) {
   return (
     <div className="card">
         <AnimateSharedLayout>
-            {expanded ? <ExpandedCard param={props} setExpanded={()=>setExpanded(false)}/> : <CompactCard param={props}
+            {expanded ? 'Expanded' /* <ExpandedCard param={props} setExpanded={()=>setExpanded(false)}/> */ : <CompactCard param={props}
             setExpanded={()=>setExpanded(true)}
             /> }
         </AnimateSharedLayout>

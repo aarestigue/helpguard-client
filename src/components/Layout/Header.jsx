@@ -64,7 +64,7 @@ function Header() {
         <>
         <Link to="/login">Login</Link>
         <div className="navbar-end">
-        <Link to="/false/signup" className="btn">Start now</Link>
+        <Link to="/false/signup"> <button className="btn btn-primary">Create an account</button></Link>
       </div>
       
       </>

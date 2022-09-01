@@ -4,6 +4,9 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import {Multiselect} from 'multiselect-react-dropdown';
 import { UserMenu } from 'react-admin';
+/* import { Client } from "@hubspot/api-client/lib/codegen/cms/hubdb"; */
+
+
 
 function CreateUser({update, onClose}) {
 
@@ -73,28 +76,60 @@ function CreateUser({update, onClose}) {
       const handleRole = (e) => setRole(e.target.value);
       const handleOwner = (e) => setOwner(e.target.value);
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
-    
+        
+        // Local API Body
+
         const body = { name, lastName, email, company, role, owner};
+
+        // Hubspot body
+
+        /* const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_KEY },
+            {heades : { Authorization: `Bearer ${storedToken}`},}
+             );
+        const contactObject = {
+            properties: {
+                firstname: name,
+                lastname: lastName,
+                email: email
+            },
+        };
+ */
         const storedToken = localStorage.getItem('authToken');
-        axios
-          .post(`${process.env.REACT_APP_API_URL}/api/users`, body, {
-          headers: {
-            Authorization: `Bearer ${storedToken}`,
-          }
-        })
-        .then((client) => {
-            setName('');
-            setLastName('');
-            setEmail('');
-            setCompany('');
-            setRole('');
-            setOwner('');
-            update()
-            onClose()
-          })
-          .catch((err) => console.log(err));
+
+        try{
+        
+        let newClient = await axios
+        .post(`${process.env.REACT_APP_API_URL}/api/users`, body, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        }
+      })
+
+     /*  await hubspotClient.crm.contacts.basicApi.create(contactObject) */
+      /* const response = await hubspotClient.apiRequest({
+        method: 'get',
+        path: '/crm/v3/objects/contacts',
+    })
+    const json = await response.json()
+    console.log(json)
+ */
+      setName('');
+      setLastName('');
+      setEmail('');
+      setCompany('');
+      setRole('');
+      setOwner('');
+      update();
+      onClose();
+
+
+
+        } catch (error) {
+        console.log(error);
+      }
+
       };
 
   return (

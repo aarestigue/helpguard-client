@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import './index.css';
 import './components/EditDelete/EditCompany.css'
+
 import './components/Modal/modal.css'
 import './components/pages/Tickets/Tickets.css'
 import './components/pages/AdminPanel/AdminPanel.css'
@@ -15,6 +16,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { AuthProviderWrapper } from './context/auth.context';
 import { DragDropContext } from 'react-beautiful-dnd';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

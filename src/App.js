@@ -10,6 +10,7 @@ import DbCompany from './components/DbCompany/DbCompany';
 import DbUsers from './components/DbUsers/DbUsers';
 import Tickets from './components/pages/Tickets/Tickets';
 import AdminPanel from './components/pages/AdminPanel/AdminPanel';
+import Sidebar from './components/Sidebar/Sidebar';
 
 
 function App() {
@@ -17,9 +18,10 @@ function App() {
     <div className="App">
 
       <Layout/>
-      <HomePage/>
+    {/*   <Sidebar/> */}
       
       <Routes>
+       <Route path="/" element={<HomePage/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/:employee/signup" element={<Signup/>}/>
         <Route path="/database" element={<Database/>}/>

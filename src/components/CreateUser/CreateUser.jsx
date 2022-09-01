@@ -91,23 +91,23 @@ function CreateUser({update, onClose}) {
 
     
         
-        const contactObject = {
+      /*   const contactObject = {
             properties: {
                 firstname: name,
                 lastname: lastName,
                 email: email
             },
-        };
+        }; */
 
         const storedToken = localStorage.getItem('authToken');
 
         try{
 
-        let hubspotResponse = await axios.post (`https://api.hubapi.com/crm/v3/objects/contacts/?hapikey=pat-eu1-07afd232-6e0b-407f-908d-ba2b6d528910`, contactObject, 
-        /* {qs: { hapikey: process.env.HUBSPOT_TOKEN }}, */
+        /* let hubspotResponse = await axios.get(`https://api.hubapi.com/crm/v3/objects/contacts/?hapikey=pat-eu1-07afd232-6e0b-407f-908d-ba2b6d528910`, 
+        {qs: { hapikey: process.env.HUBSPOT_TOKEN }},
         {headers: {
               Authorization: `Bearer ${storedToken}`,
-            }},  )
+            }},  ) */
         
         let response = await axios
         .post(`${process.env.REACT_APP_API_URL}/api/users`, body, {
@@ -133,7 +133,7 @@ function CreateUser({update, onClose}) {
       update();
       onClose();
 
-      console.log(response)
+     
 
 
 

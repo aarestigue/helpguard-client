@@ -8,6 +8,7 @@ function AuthProviderWrapper(props) {
   const [loading, setLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [admin, setAdmin] = useState(false)
 
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
@@ -38,6 +39,8 @@ function AuthProviderWrapper(props) {
       setLoggedIn(false);
       setUser(null);
     }
+
+    
   };
 
   const logout = () => {

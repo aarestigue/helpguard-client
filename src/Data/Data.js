@@ -16,26 +16,32 @@ export const SidebarOptions = [
     {
         icon: UilTachometerFastAlt,
         heading : "Dashboard",
+        path: "/database",
+
     },
 
     {
         icon: UilDatabaseAlt,
         heading : "Database",
+        path: "/database",
     },
 
     {
         icon: UilMailbox,
         heading : "Tickets",
+        path: "/database",
     },
 
     {
         icon: UilUsersAlt,
         heading : "Users",
+        path: "/database",
     },
 
     {
         icon: UilLifeRing,
         heading : "Help",
+        path: "/database",
     },
 
 ]

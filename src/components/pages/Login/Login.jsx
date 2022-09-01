@@ -24,7 +24,7 @@ function LoginPage() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate('/database');
+        navigate('/admin');
       })
       .catch((err) => {
         console.log(err);

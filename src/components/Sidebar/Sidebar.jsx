@@ -4,6 +4,7 @@ import logo from '../../images/logo.svg'
 import { SidebarOptions } from '../../Data/Data'
 import { UilSignout } from '@iconscout/react-unicons'
 import { useState, useEffect } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 
 function Sidebar() {
 
@@ -23,9 +24,10 @@ function Sidebar() {
 
             {SidebarOptions.map((item, index)=> {
                 return (
-                <div className={selected === index ? "menu-items active" : "menu-items" }
+                <Link  className={selected === index ? "menu-items active" : "menu-items" }
                 key={index}
                 onClick={()=> setSelected(index)}
+                to={item.path}
                 >
                     <div>
                     <item.icon/>
@@ -33,7 +35,7 @@ function Sidebar() {
                 <span>
                     {item.heading}
                 </span>
-                </div>
+                </Link>
                 )
             })}
 

@@ -100,7 +100,7 @@ function CreateUser({update, onClose}) {
 
         try{
         
-        await axios
+        let response = await axios
         .post(`${process.env.REACT_APP_API_URL}/api/users`, body, {
         headers: {
           Authorization: `Bearer ${storedToken}`,
@@ -123,6 +123,8 @@ function CreateUser({update, onClose}) {
       setOwner('');
       update();
       onClose();
+
+      console.log(response)
 
 
 

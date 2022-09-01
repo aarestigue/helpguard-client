@@ -8,6 +8,7 @@ import Result from 'postcss';
 import { DropResult } from 'react-beautiful-dnd';
 import axios from 'axios';
 import { current } from 'daisyui/src/colors';
+import CreateColumn from './CreateColumn';
 
 function Tickets() {
 
@@ -201,6 +202,8 @@ function Tickets() {
   return (
     <>
     <h2>Ticket pipeline</h2>
+
+    <CreateColumn/>
 
     
     <DragDropContext onDragEnd={onDragEnd}>

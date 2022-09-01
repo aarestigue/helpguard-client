@@ -13,6 +13,7 @@ import AdminPanel from './components/pages/AdminPanel/AdminPanel';
 import Sidebar from './components/Sidebar/Sidebar';
 import Profile from './components/pages/Pofile/Profile';
 import Help from './components/pages/Help/Help';
+import ThankYouPage from './components/pages/ThankYouPage/ThankYouPage';
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
         <Route path="/tickets" element={<Tickets/>}/>
         <Route path="/admin" element={<AdminPanel/>}/>
         <Route path="/help" element={<Help/>}/>
+        <Route path="/help-success" element={<ThankYouPage/>}/>
+
 
 
       </Routes>

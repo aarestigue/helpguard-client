@@ -85,9 +85,12 @@ function CreateUser({update, onClose}) {
 
         // Hubspot body
 
-        /* const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_KEY },
+       /*  const hubspotClient = new Client({ accessToken: process.env.HUBSPOT_TOKEN },
             {heades : { Authorization: `Bearer ${storedToken}`},}
-             );
+             ); */
+
+    
+        
         const contactObject = {
             properties: {
                 firstname: name,
@@ -95,10 +98,16 @@ function CreateUser({update, onClose}) {
                 email: email
             },
         };
- */
+
         const storedToken = localStorage.getItem('authToken');
 
         try{
+
+        let hubspotResponse = await axios.post (`https://api.hubapi.com/crm/v3/objects/contacts/?hapikey=pat-eu1-07afd232-6e0b-407f-908d-ba2b6d528910`, contactObject, 
+        /* {qs: { hapikey: process.env.HUBSPOT_TOKEN }}, */
+        {headers: {
+              Authorization: `Bearer ${storedToken}`,
+            }},  )
         
         let response = await axios
         .post(`${process.env.REACT_APP_API_URL}/api/users`, body, {
@@ -107,14 +116,14 @@ function CreateUser({update, onClose}) {
         }
       })
 
-     /*  await hubspotClient.crm.contacts.basicApi.create(contactObject) */
-      /* const response = await hubspotClient.apiRequest({
+     /* await hubspotClient.crm.contacts.basicApi.create(contactObject) 
+      const hResponse = await hubspotClient.apiRequest({
         method: 'get',
         path: '/crm/v3/objects/contacts',
     })
-    const json = await response.json()
-    console.log(json)
- */
+    const json = await hResponse.json()
+    console.log(json) */
+
       setName('');
       setLastName('');
       setEmail('');

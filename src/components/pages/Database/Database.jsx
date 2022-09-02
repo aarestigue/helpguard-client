@@ -5,6 +5,7 @@ import DbCompany from '../../DbCompany/DbCompany'
 import EditDelete from '../../EditDelete/EditDelete'
 import {Link} from 'react-router-dom'
 import DbUsers from '../../DbUsers/DbUsers'
+import Sidebar from '../../Sidebar/Sidebar';
 
 function Database() {
 
@@ -39,21 +40,21 @@ function Database() {
 
   return (
     <>
-    <div>
-    <AppNavBar/>
-        <div className="tabs">
+    <div className='admin-body'>
+    <div className='admin-glass'>
+        <Sidebar/>
+        <div>
+          <div className="tabs">
             <a  onClick={()=> {setModelPage('clients'); toggleClientsClass()}}  className= {isClientsActive ? "tab tab-lg tab-lifted tab-active" : "tab tab-lg tab-lifted" }>Clients</a> 
             <a  onClick={()=> {setModelPage('companies'); toggleCompaniesClass()}} className={isCompaniesActive ? "tab tab-lg tab-lifted tab-active" : "tab tab-lg tab-lifted" }>Companies</a> 
-            
+          </div>
+            {getModelPage(modelPage)}
         </div>
-    
-    {getModelPage(modelPage)}
-    
+       
 
-        
-
-    
     </div>
+</div>
+    
     
     </>
   )

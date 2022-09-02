@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import {Multiselect} from 'multiselect-react-dropdown';
 import { UserMenu } from 'react-admin';
+import Sidebar from '../../Sidebar/Sidebar';
 
 function Help() {
 
@@ -59,8 +60,12 @@ function Help() {
 
   return (
     <>
-    <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className='admin-body'>
+        <div className='admin-glass'>
+        <Sidebar/>
+        
+    
+        <div className="hero-content flex-col lg:flex-row-reverse"> 
         <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Get a Helpguard to contact you</h1>
             <p className="py-6">We'll send help in less than 15 minutes. Promise.</p>
@@ -100,14 +105,18 @@ function Help() {
         <input type="text" name='sender' onChange={handleSender} hidden />
 
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Ask for help</button>
+          <button className="btn btn-dark">Ask for help</button>
         </div>
 
         </form>    
       </div>
     </div>
+  </div> 
+
+       
   </div>
-</div>
+         </div>
+    
     </>
   )
 }

@@ -9,6 +9,7 @@ import { DropResult } from 'react-beautiful-dnd';
 import axios from 'axios';
 import { current } from 'daisyui/src/colors';
 import CreateColumn from './CreateColumn';
+import Sidebar from '../../Sidebar/Sidebar';
 
 function Tickets() {
 
@@ -201,16 +202,40 @@ function Tickets() {
 
   return (
     <>
-    <h2>Ticket pipeline</h2>
 
-    <CreateColumn/>
+   <div className='admin-body'>
+      <div className='admin-glass'>
+        <Sidebar/>
+        
+        <div>
+        <h1>Ticket pipeline</h1>
+        {/* <CreateColumn/> */}
+        <DragDropContext className="column-container" onDragEnd={onDragEnd}>
+          <TicketColumn ticketsStates={ticketsState}/>
+        </DragDropContext>
+        </div>
+        
+        
+        
+        <div>
+
+
+    </div>
+       
+       <div className="ticket-header">
+       
+
+       
+
+       </div>
+        
 
     
-    <DragDropContext onDragEnd={onDragEnd}>
- 
-    <TicketColumn ticketsStates={ticketsState}/>
-  
-    </DragDropContext>
+    
+    
+    </div>
+</div>
+
     
     </>
   )

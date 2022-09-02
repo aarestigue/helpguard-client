@@ -21,8 +21,8 @@
   } */
   
   .logo > img {
-    margin-top: 4vw;
-    width: 15vw;
+    margin-top: 1vw;
+    width: 5vw;
    
   }
 
@@ -81,6 +81,11 @@
   .logo{
     display: none;
   }
+  .logo > img {
+    margin-top: 4vw;
+    width: 15vw;
+   
+  }
 }
 
   @media screen and (max-width: 768px) {
@@ -98,6 +103,11 @@
     }
     .logo{
       display: flex;
+    }
+    .logo > img {
+      margin-top: 4vw;
+      width: 15vw;
+     
     }
     .menu .menu-items:last-child {
       position: relative;

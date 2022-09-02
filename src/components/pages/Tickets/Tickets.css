@@ -6,19 +6,30 @@
 }
 
 .ticket-status {
-    width: 25%;
+    width: 30%;
     background-color: aliceblue;
     margin: 3vw;
+}
+
+.column-container {
+    width: 90vw;
+    display: flex;
 }
 
 @media screen and (max-width: 690px) {
     
     .ticket-pipeline {
         width: 80%;
-        background-color: grey;
+        background-color: rgb(202, 201, 201);
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+    }
+
+    .column-container {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -27,3 +38,4 @@
     background-color: rgba(241, 239, 234, 0.521);
     
 }
+

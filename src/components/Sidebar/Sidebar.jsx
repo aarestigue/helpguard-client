@@ -6,11 +6,14 @@ import { UilSignout, UilBars } from '@iconscout/react-unicons'
 import {motion, AnimateSharedLayout, LayoutGroup} from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../../context/auth.context';
+import { useContext } from 'react';
 
 function Sidebar() {
 
  const [selected, setSelected] = useState(0);
  const [expanded, setExpanded] = useState(true);
+ const { loggedIn, user, logout } = useContext(AuthContext);
 
  const sidebarVariants = {
     true:{
@@ -62,7 +65,7 @@ function Sidebar() {
                 )
             })}
 
-            <div className="menu-items">
+            <div className="menu-items" onClick={logout}>
                 <UilSignout/>
                 <span>
                     Logout

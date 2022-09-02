@@ -15,21 +15,26 @@ function TicketColumn(props) {
     @media screen and (max-width: 690px){
     width: 90%;
     margin: 2vw;
-    border: 0.3vw solid orange;
-    border-radius: 0.8vw;   
+    border: none;
+    border-radius: 0.8vw; 
+    background-color  :  #80808018;
+    
     }
 
     @media screen and (min-width: 691px){
     width: 30%;
     margin: 2vw;
-    border: 0.3vw solid orange;
+    border: none;
     border-radius: 0.8vw;   
+    background-color  :  #80808018;
     }
     
     `;
     const Title = styled.h3`
     padding: 2vw;
-    background-color: grey;
+    background-color: #243f5ad6;
+    border-radius: 0.8vw;
+    color: white;
     `;
     const StateList = styled.div`
     padding: 2vw;
@@ -68,9 +73,9 @@ function TicketColumn(props) {
 
       
   return (
-    <div className='column-group overflow-x-auto overflow-y-auto'> 
+    <div className='column-container'> 
        
-        <div>{ticketsStates && ticketsStates.map((state)=> {
+        {ticketsStates && ticketsStates.map((state)=> {
             return (
             <Container>
             <Title>{state.statusName}</Title>
@@ -104,7 +109,7 @@ function TicketColumn(props) {
             
             </Container>)
             
-        })}</div>
+        })}
         
 
     </div>

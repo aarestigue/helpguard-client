@@ -11,7 +11,7 @@ function Header() {
     <div>
         <div class="navbar bg-base-100">
   <div class="flex-1">
-    <Link to="/" className="btn btn-ghost normal-case text-xl"><img src="" alt="" />logo</Link>
+    <Link to="/" className="btn btn-ghost normal-case text-xl"><img src="" alt="" />HelpGuard</Link>
   </div>
 
  
@@ -36,7 +36,7 @@ function Header() {
       </div>
     </div> */}
 
-    <Link to="/admin">Go to App</Link>
+    <Link to="/admin">App</Link>
     
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -52,7 +52,7 @@ function Header() {
             <span class="badge">New</span>
           </a>
         </li>
-        <li><a>Settings</a></li>
+        {/* <li><a>Settings</a></li> */}
         <li><a onClick={logout}>Logout</a></li>
       </ul>
 

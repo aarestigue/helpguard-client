@@ -135,7 +135,7 @@ function DbUsers() {
                     
                     <div>
                     <div className="font-bold">{user.name}</div>
-                    <div className="text-sm opacity-50">Client</div>
+                    <div className="text-sm opacity-50"></div>
                     </div>
     
                     </div>

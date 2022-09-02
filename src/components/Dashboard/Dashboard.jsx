@@ -68,7 +68,7 @@ function Dashboard() {
     <div className='dashboard'>
         
         <h1>Dashboard</h1>
-        <button><span><UilRedo/></span> Refresh</button>
+        {/* <button><span><UilRedo/></span> Refresh</button> */}
         <Cards/>
         <Table/>
 

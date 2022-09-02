@@ -9,7 +9,7 @@ function AdminPanel() {
         <Sidebar/>
         <Dashboard/>
         <div></div>
-        <div></div>
+       
 
     </div>
 </div>

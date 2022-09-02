@@ -5,3 +5,19 @@
   .parent-container{
     width: 100%;
   }
+
+  @media screen and (max-width: 1200px) {
+    .cards {
+      flex-direction: column;
+    }
+    .parent-container {
+      height: 9rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px)
+  {
+    .cards{
+      width: 90%;
+    }
+  }

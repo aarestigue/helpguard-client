@@ -1,6 +1,7 @@
 import React from 'react'
 import './Dashboard.css'
 import Cards from '../Cards/Cards'
+import Table from '../Table/Table';
 
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -69,6 +70,7 @@ function Dashboard() {
         <h1>Dashboard</h1>
         <button><span><UilRedo/></span> Refresh</button>
         <Cards/>
+        <Table/>
 
 
     </div>

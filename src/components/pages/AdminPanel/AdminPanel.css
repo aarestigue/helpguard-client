@@ -36,6 +36,23 @@
     background: var(--glass);
     border-radius: 2rem;
     gap: 16px;
-    grid-template-columns: 11rem auto 20rem;
+    grid-template-columns: 11rem auto;
     overflow: hidden;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .admin-glass{
+      grid-template-columns: 10% 60%;
+      overflow-y: scroll;
+    } 
+  }
+  
+  @media screen and (max-width: 768px) {
+    .admin-glass{
+      grid-template-columns: 1fr;
+    } 
+
+    .admin-glass :-webkit-scrollbar {
+        display: none;
+    }
   }

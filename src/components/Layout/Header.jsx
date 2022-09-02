@@ -11,7 +11,7 @@ function Header() {
 
   return (
     <div>
-        <div class="navbar -100">
+        <div class="navbar bg-cyan-900 -100">
   
  
   <div class="flex-none">

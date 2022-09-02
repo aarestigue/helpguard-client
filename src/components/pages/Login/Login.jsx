@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/auth.context';
+import './Login.css';
 
 function LoginPage() {
   const [password, setPassword] = useState('');
@@ -34,9 +35,9 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
-
-      <form onSubmit={handleSubmit}>
+      <h1>Welcome! Please Login</h1>
+      <div className="text-center lg:text-left">
+      <form className='login-form' onSubmit={handleSubmit}>
 
       <div className="form-control">
             <label className="label">
@@ -58,8 +59,9 @@ function LoginPage() {
             </label>
      </div>
 
-       <button className='btn btn-success' type="submit">Login</button>
+       <button className='btn-cta' type="submit">Login</button>
       </form>
+      </div>
 
       {errorMessage && <p>{errorMessage}</p>}
 

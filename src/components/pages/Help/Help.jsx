@@ -5,25 +5,35 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {Multiselect} from 'multiselect-react-dropdown';
 import { UserMenu } from 'react-admin';
 import Sidebar from '../../Sidebar/Sidebar';
+import { AuthContext } from '../../../context/auth.context'
+import { useContext } from 'react';
 
 function Help() {
+
+const { user, logout }  = useContext(AuthContext); 
+
+
+
 
   const [subject, setSubject] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [sender, setSender] = useState('');
+  const [statusColumn, setStatusColumn] = useState('');
 
   const handleSubject= (e) => setSubject(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
   const handleSender = (e) => setSender(e.target.value);
+  const handleStatusColumn = (e) => setStatusColumn(e.target.value);
+  
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const body = { subject, description, category, sender};
+    const body = { subject, description, category, statusColumn : "6311f7de99920a174003756b"};
 
     
     const storedToken = localStorage.getItem('authToken');
@@ -42,7 +52,7 @@ function Help() {
   setDescription('');
   setCategory('');
   setSender('');
-  navigate('/tickets');
+  navigate('/help-success');
 
  /*  update(); */
 
@@ -102,10 +112,14 @@ function Help() {
         <option>Sales question</option>
         </select>
         
-        <input type="text" name='sender' onChange={handleSender} hidden />
+        {user && <input type="text" value={user._id} onChange={handleSender} hidden/>}
+
+        <input type="text" name='statusColumn' value="6311f7de99920a174003756b" onChange={handleStatusColumn} hidden/>
+        
+        
 
         <div className="form-control mt-6">
-          <button className="btn btn-dark">Ask for help</button>
+          <button type='submit' className="btn-cta">Send</button>
         </div>
 
         </form>    

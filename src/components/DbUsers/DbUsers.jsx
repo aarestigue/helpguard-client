@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../pages/Database/Database.css'
 
 import editIcon from '../../images/edit.svg'
 import deleteIcon from '../../images/trash.svg'
@@ -56,10 +57,10 @@ function DbUsers() {
 
         {/* HERE STARTS THE OPTIONS/MODALS MENU*/}
 
-        <ul class="menu menu-horizontal bg-base-100 rounded-box" >
+        <ul class="menu menu-horizontal bg-base-100 rounded-box database-options" >
   
   
-        <li onClick={()=> setCloseEditModal(false)}>
+        <li  onClick={()=> setCloseEditModal(false)}>
 
         <a >
         <img src={editIcon} className="h-5 w-5" fill="none" alt=""  viewBox="0 0 24 24" stroke="currentColor">

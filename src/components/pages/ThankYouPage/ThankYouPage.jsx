@@ -38,7 +38,7 @@ useEffect(() => {
                 <p>-{quote.character}</p>
             </div>
             <br />
-        <Link to="/admin"><button class="btn btn-primary">Go back</button></Link> 
+        <Link to="/tickets"><button class="btn-cta">Go back</button></Link> 
     </div>
   </div>
 </div>

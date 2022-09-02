@@ -208,7 +208,7 @@ function Tickets() {
         <Sidebar/>
         
         <div>
-        <h1>Ticket pipeline</h1>
+        {/* <h1>Ticket pipeline</h1> */}
         {/* <CreateColumn/> */}
         <DragDropContext className="column-container" onDragEnd={onDragEnd}>
           <TicketColumn ticketsStates={ticketsState}/>

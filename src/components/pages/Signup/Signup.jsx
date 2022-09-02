@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link, useParams } from 'react-router-dom';
+import '../Login/Login.css'
 
 function SignupPage() {
 
@@ -40,8 +41,8 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Create an Account</h1>
+    <div className="LoginPage">
+      <h1><b>Create an Account</b> </h1>
 
      
 
@@ -93,7 +94,7 @@ function SignupPage() {
         
 
      
-        <button type="submit" className='btn btn-success'>Sign up</button>
+        <button type="submit" className='btn-cta'>Sign up</button>
       </form>
 
       {errorMessage && <p>{errorMessage}</p>}

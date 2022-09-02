@@ -2,6 +2,8 @@ import React from 'react'
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../context/auth.context';
 import { useContext } from 'react';
+import '../pages/HomePage/HomePage.css'
+import Logo from '../../images/Help Guard.svg'
 
 function Header() {
 
@@ -9,15 +11,12 @@ function Header() {
 
   return (
     <div>
-        <div class="navbar bg-base-100">
-  <div class="flex-1">
-    <Link to="/" className="btn btn-ghost normal-case text-xl"><img src="" alt="" />HelpGuard</Link>
-  </div>
-
+        <div class="navbar -100">
+  
  
   <div class="flex-none">
   {loggedIn && (
-    <>
+    <div className='navbar-login'>
    {/*  <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle">
         <div class="indicator">
@@ -36,7 +35,7 @@ function Header() {
       </div>
     </div> */}
 
-    <Link to="/admin">App</Link>
+    <Link className='app-navbar-menu' to="/admin">App</Link>
     
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -57,14 +56,18 @@ function Header() {
       </ul>
 
     </div>
-    </>
+    </div>
      )}
 
      {logout && !loggedIn && (
         <>
+        <div class="flex-1">
+    <Link to="/" className="main-logo"><img src={Logo} alt="" /></Link>
+  </div>
+
         <Link to="/login">Login</Link>
         <div className="navbar-end">
-        <Link to="/false/signup"> <button className="btn btn-primary">Create an account</button></Link>
+        <Link to="/false/signup"> <button className="btn-cta">Start now</button></Link>
       </div>
       
       </>

@@ -15,7 +15,7 @@ function HomePage() {
             <h1 className="text-5xl font-bold">Scale your company with happy customers</h1>
             <p className="py-6">We're 24/7 available to help you build better relationships
             with your clients.</p>
-       <Link to="/false/signup"> <button className="btn btn-primary">Create an account</button></Link>
+       <Link to="/false/signup"> <button className="btn-cta">Start now</button></Link>
     </div>
   </div>
 </div>

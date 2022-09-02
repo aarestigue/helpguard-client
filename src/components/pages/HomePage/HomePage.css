@@ -1,3 +1,35 @@
 .home-image {
     width: 30vw;
 }
+
+.btn-cta {
+    width: 6rem;
+    background-color: rgb(255, 149, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: white;
+    margin: 1rem;
+}
+
+.main-logo {
+    width: 15rem;
+}
+
+.navbar-login {
+    width: 90vw;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1rem;
+}
+
+.app-navbar-menu {
+ margin: 1rem;
+}
+
+@media screen and (max-width: 690px){
+    .main-logo {
+        /* display: none; */
+        width: 10rem;
+    }
+}

@@ -1,19 +1,21 @@
-.home-image {
-    width: 30vw;
+.navbar bg-base-100 {
+box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.546);
+display: flex;
+align-items: center;
+
+
 }
 
-.btn-cta {
-    width: 6rem;
-    background-color: rgb(255, 149, 0);
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem;
-    color: white;
-    margin: 1rem;
+.navbar-end {
+    display: flex;
+   justify-content: end;
+   align-items: center;
 }
 
-/* .main-logo {
+.main-logo {
     width: 15rem;
+    margin: 0.5vw;
+    
 }
 
 .navbar-login {
@@ -30,6 +32,6 @@
 @media screen and (max-width: 690px){
     .main-logo {
         /* display: none; */
-  /*       width: 10rem;
+        width: 10rem;
     }
-}  */
+}
